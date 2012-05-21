@@ -12,6 +12,7 @@
       <module>app-ejb</module>
       <module>app-web</module>
       <module>app-ear</module>
+      <module>app-jar</module>
    </modules>
 
    <properties>

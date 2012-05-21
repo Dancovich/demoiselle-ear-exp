@@ -46,7 +46,12 @@
          <artifactId>hibernate-jpa-2.0-api</artifactId>
          <scope>provided</scope>
       </dependency>
-
+      
+<!--       <dependency> -->
+<!--          <groupId>br.gov.serpro</groupId> -->
+<!--          <artifactId>app-jar</artifactId> -->
+<!--          <version>0.0.1-SNAPSHOT</version> -->
+<!--       </dependency> -->
    </dependencies>
 
    <build>

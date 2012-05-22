@@ -24,12 +24,14 @@ import br.gov.serpro.lib.ResourceBundleUtil;
 public class MemberResourceRESTService {
    @Inject
    private EntityManager em;
+   
+   @Inject
+   private ResourceBundle bundle;
 
    @GET
    @Produces("text/xml")
    public List<Member> listAllMembers() {
 
-	   ResourceBundle bundle = ResourceBundleUtil.getResourceBundle();
 	   String mensagem = bundle.getString("app.web.mensagem");
 	   System.out.println(mensagem);
 

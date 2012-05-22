@@ -33,6 +33,13 @@
          <version>0.0.1-SNAPSHOT</version>
          <type>jar</type>
       </dependency>
+      
+      <dependency>
+         <groupId>javax.enterprise</groupId>
+         <artifactId>cdi-api</artifactId>
+         <type>jar</type>
+         <scope>provided</scope>
+      </dependency>
    </dependencies>
 
    <build>

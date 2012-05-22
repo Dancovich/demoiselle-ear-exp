@@ -34,6 +34,12 @@
 		</dependency>
 		<dependency>
 			<groupId>br.gov.serpro</groupId>
+			<artifactId>app-ejb</artifactId>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.serpro</groupId>
 			<artifactId>app-jar</artifactId>
 			<scope>provided</scope>
 		</dependency>

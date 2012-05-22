@@ -11,8 +11,13 @@ public class MyManagedBean2 {
 	@Inject
 	private ResourceBundle bundle;
 
+	@Inject
+	private MyEJB ejb;
+
 	public void action() {
 		String mensagem = bundle.getString("app.web.mensagem");
 		System.out.println(mensagem + " em MyManagedBean 2.");
+
+		ejb.method();
 	}
 }

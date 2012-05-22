@@ -24,13 +24,11 @@
 			<artifactId>app-web-2</artifactId>
 			<type>war</type>
 		</dependency>
-		<!--
 		<dependency>
 			<groupId>br.gov.serpro</groupId>
 			<artifactId>app-ejb</artifactId>
 			<type>ejb</type>
 		</dependency>
-		-->
 		<dependency>
 			<groupId>br.gov.serpro</groupId>
 			<artifactId>app-jar</artifactId>

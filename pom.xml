@@ -12,7 +12,7 @@
 		<module>app-ear</module>
 		<module>app-web-1</module>
 		<module>app-web-2</module>
-<!-- 		<module>app-ejb</module> -->
+		<module>app-ejb</module>
 		<module>app-jar</module>
 	</modules>
 
@@ -27,23 +27,19 @@
 				<artifactId>app-web-1</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>war</type>
-				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>br.gov.serpro</groupId>
 				<artifactId>app-web-2</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>war</type>
-				<scope>compile</scope>
 			</dependency>
-			<!--
 			<dependency>
 				<groupId>br.gov.serpro</groupId>
 				<artifactId>app-ejb</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>ejb</type>
 			</dependency>
-			-->
 			<dependency>
 				<groupId>br.gov.serpro</groupId>
 				<artifactId>app-jar</artifactId>

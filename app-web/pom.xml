@@ -47,11 +47,11 @@
          <scope>provided</scope>
       </dependency>
       
-<!--       <dependency> -->
-<!--          <groupId>br.gov.serpro</groupId> -->
-<!--          <artifactId>app-jar</artifactId> -->
-<!--          <version>0.0.1-SNAPSHOT</version> -->
-<!--       </dependency> -->
+      <dependency>
+         <groupId>br.gov.serpro</groupId>
+         <artifactId>app-jar</artifactId>
+         <version>0.0.1-SNAPSHOT</version>
+      </dependency>
    </dependencies>
 
    <build>

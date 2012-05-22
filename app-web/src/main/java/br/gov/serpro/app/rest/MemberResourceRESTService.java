@@ -12,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import br.gov.serpro.app.model.Member;
+import br.gov.serpro.lib.ResourceBundleUtil;
 
 /**
  * JAX-RS Example
@@ -28,7 +29,7 @@ public class MemberResourceRESTService {
    @Produces("text/xml")
    public List<Member> listAllMembers() {
 
-	   ResourceBundle bundle = ResourceBundle.getBundle("messages");
+	   ResourceBundle bundle = ResourceBundleUtil.getResourceBundle();
 	   String mensagem = bundle.getString("app.web.mensagem");
 	   System.out.println(mensagem);
 

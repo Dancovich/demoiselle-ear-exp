@@ -24,11 +24,6 @@
 			<artifactId>cdi-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>br.gov.serpro</groupId>
-			<artifactId>app-jar</artifactId>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 	<build>

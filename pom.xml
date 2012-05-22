@@ -13,7 +13,6 @@
 		<module>app-web-1</module>
 		<module>app-web-2</module>
 		<module>app-ejb</module>
-		<module>app-jar</module>
 	</modules>
 
 	<properties>
@@ -80,4 +79,12 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>demoiselle.sourceforge.net</id>
+			<name>Demoiselle Maven Repository</name>
+			<url>http://demoiselle.sourceforge.net/repository/release</url>
+		</repository>
+	</repositories>
 </project>

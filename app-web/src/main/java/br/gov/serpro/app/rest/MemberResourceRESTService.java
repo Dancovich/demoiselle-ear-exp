@@ -1,6 +1,7 @@
 package br.gov.serpro.app.rest;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -26,7 +27,12 @@ public class MemberResourceRESTService {
    @GET
    @Produces("text/xml")
    public List<Member> listAllMembers() {
-      // Use @SupressWarnings to force IDE to ignore warnings about "genericizing" the results of
+
+	   ResourceBundle bundle = ResourceBundle.getBundle("messages");
+	   String mensagem = bundle.getString("app.web.mensagem");
+	   System.out.println(mensagem);
+
+	   // Use @SupressWarnings to force IDE to ignore warnings about "genericizing" the results of
       // this query
       @SuppressWarnings("unchecked")
       // We recommend centralizing inline queries such as this one into @NamedQuery annotations on

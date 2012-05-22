@@ -1,85 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-   <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-   <parent>
-      <artifactId>app</artifactId>
-      <groupId>br.gov.serpro</groupId>
-      <version>0.0.1-SNAPSHOT</version>
-   </parent>
+	<parent>
+		<artifactId>app</artifactId>
+		<groupId>br.gov.serpro</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 
-   <artifactId>app-ear</artifactId>
-   <packaging>ear</packaging>
+	<artifactId>app-ear</artifactId>
+	<packaging>ear</packaging>
 
-   <name>app EAR module</name>
+	<name>app EAR module</name>
 
-   <dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>br.gov.serpro</groupId>
+			<artifactId>app-web-1</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.serpro</groupId>
+			<artifactId>app-web-2</artifactId>
+			<type>war</type>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>br.gov.serpro</groupId>
+			<artifactId>app-ejb</artifactId>
+			<type>ejb</type>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>br.gov.serpro</groupId>
+			<artifactId>app-jar</artifactId>
+			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 
-      <!-- Depend on the ejb module and war so that we can package them -->
-      <dependency>
-         <groupId>br.gov.serpro</groupId>
-         <artifactId>app-web</artifactId>
-         <type>war</type>
-      </dependency>
-      <dependency>
-         <groupId>br.gov.serpro</groupId>
-         <artifactId>app-ejb</artifactId>
-         <type>ejb</type>
-      </dependency>
-      
-      <dependency>
-         <groupId>br.gov.serpro</groupId>
-         <artifactId>app-jar</artifactId>
-         <version>0.0.1-SNAPSHOT</version>
-         <type>jar</type>
-      </dependency>
-      
-      <dependency>
-         <groupId>javax.enterprise</groupId>
-         <artifactId>cdi-api</artifactId>
-         <type>jar</type>
-         <scope>provided</scope>
-      </dependency>
-   </dependencies>
-
-   <build>
-      <finalName>app</finalName>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-ear-plugin</artifactId>
-            <version>2.6</version>
-            <configuration>
-               <!-- Tell Maven we are using Java EE 6 -->
-               <version>6</version>
-               <!-- Use Java EE ear libraries as needed. Java EE ear libraries 
-                  are in easy way to package any libraries needed in the ear, and automatically 
-                  have any modules (EJB-JARs and WARs) use them -->
-               <defaultLibBundleDir>lib</defaultLibBundleDir>
-               <modules>
-                  <!-- Register our War as a web module, and set the context 
-                     root -->
-                  <webModule>
-                     <groupId>br.gov.serpro</groupId>
-                     <artifactId>app-web</artifactId>
-                     <!-- Define the context root for the webapp -->
-                     <contextRoot>/app</contextRoot>
-                  </webModule>
-               </modules>
-            </configuration>
-         </plugin>
-         <!-- The JBoss AS plugin deploys your ear to a local JBoss AS container -->
-         <!-- Due to Maven's lack of intelligence with EARs we need to configure 
-            the jboss-as maven plugin to skip deployment for all modules. We then enable 
-            it specifically in the ear module. -->
-         <plugin>
-            <groupId>org.jboss.as.plugins</groupId>
-            <artifactId>jboss-as-maven-plugin</artifactId>
-            <configuration>
-               <skip>false</skip>
-            </configuration>
-         </plugin>
-      </plugins>
-   </build>
-
+	<build>
+		<finalName>app</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>br.gov.serpro</groupId>
+							<artifactId>app-web-1</artifactId>
+							<contextRoot>/app/1</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>br.gov.serpro</groupId>
+							<artifactId>app-web-2</artifactId>
+							<contextRoot>/app/2</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jboss.as.plugins</groupId>
+				<artifactId>jboss-as-maven-plugin</artifactId>
+				<configuration>
+					<skip>false</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

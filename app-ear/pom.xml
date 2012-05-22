@@ -26,6 +26,13 @@
          <artifactId>app-ejb</artifactId>
          <type>ejb</type>
       </dependency>
+      
+      <dependency>
+         <groupId>br.gov.serpro</groupId>
+         <artifactId>app-jar</artifactId>
+         <version>0.0.1-SNAPSHOT</version>
+         <type>jar</type>
+      </dependency>
    </dependencies>
 
    <build>

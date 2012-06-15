@@ -13,6 +13,7 @@
 		<module>app-web-1</module>
 		<module>app-web-2</module>
 		<module>app-ejb</module>
+		<module>app-lib</module>
 	</modules>
 
 	<properties>
@@ -45,14 +46,6 @@
 				<version>0.0.1-SNAPSHOT</version>
 				<type>jar</type>
 			</dependency>
-
-			<dependency>
-				<groupId>org.jboss.spec</groupId>
-				<artifactId>jboss-javaee-web-6.0</artifactId>
-				<version>2.0.0.Final</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -65,15 +58,6 @@
 					<configuration>
 						<source>1.6</source>
 						<target>1.6</target>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.jboss.as.plugins</groupId>
-					<artifactId>jboss-as-maven-plugin</artifactId>
-					<version>7.0.2.Final</version>
-					<inherited>true</inherited>
-					<configuration>
-						<skip>true</skip>
 					</configuration>
 				</plugin>
 			</plugins>

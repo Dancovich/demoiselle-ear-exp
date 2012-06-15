@@ -15,14 +15,15 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.jboss.spec.javax.ejb</groupId>
-			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<scope>provided</scope>
+			<groupId>br.gov.serpro</groupId>
+			<artifactId>app-lib</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 

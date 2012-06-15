@@ -1,23 +1,25 @@
 package br.gov.serpro;
 
-import java.util.ResourceBundle;
+import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.inject.Inject;
+import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
-@ManagedBean
-public class MyManagedBean1 {
+@SessionScoped
+@Named
+public class MyManagedBean1 implements Serializable {
 
-	@Inject
-	private ResourceBundle bundle;
+	private static final long serialVersionUID = 1L;
 
-	@Inject
-	private MyEJB ejb;
-
+	@EJB
+	private MyEJBInterface ejb;
+	
 	public void action() {
-		String mensagem = bundle.getString("app.web.mensagem");
+		String mensagem = "Mensagem do app 1";//bundle.getString("app.web.mensagem");
 		System.out.println(mensagem + " em MyManagedBean 1.");
 
 		ejb.method();
 	}
+
 }

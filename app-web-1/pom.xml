@@ -38,6 +38,11 @@
 			<type>ejb</type>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>br.gov.serpro</groupId>
+			<artifactId>app-lib</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<repositories>

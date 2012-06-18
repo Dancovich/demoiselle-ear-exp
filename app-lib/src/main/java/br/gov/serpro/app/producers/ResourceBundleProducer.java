@@ -25,7 +25,7 @@ public class ResourceBundleProducer implements Serializable {
 
 	@Inject
 	protected Locale locale;
-
+	
 	private final Map<String, ResourceBundle> map = new HashMap<String, ResourceBundle>();
 
 	public ResourceBundleProducer() {
@@ -47,9 +47,10 @@ public class ResourceBundleProducer implements Serializable {
 	 * 
 	 * @param String
 	 *            baseName
+	 * @param ClassLoader classLoader
 	 */
-	public ResourceBundle create(String baseName) {
-		return getResourceBundle(baseName);
+	public ResourceBundle create(String baseName,ClassLoader classLoader) {
+		return getResourceBundle(baseName,classLoader);
 	}
 
 	/**
@@ -59,23 +60,33 @@ public class ResourceBundleProducer implements Serializable {
 	@Produces
 	@Default
 	public ResourceBundle create(InjectionPoint ip, Locale locale) {
+		//Armazena o classloader do ponto de injeção, usaremos este classloader para ler o resource.
+		ClassLoader classLoader;
+		
+		try{
+			classLoader = ip.getBean().getBeanClass().getClassLoader();
+		}
+		catch(Throwable t){
+			classLoader = this.getClass().getClassLoader();
+		}
+		
 		this.locale = locale;
 		String baseName = "messages";
-		return create(baseName);
+		return create(baseName,classLoader);
 	}
 
 	/**
 	 * This method checks if the bundle was created already. If the bundle has not been created, it creates and saves
 	 * the bundle on a Map.
 	 */
-	private ResourceBundle getResourceBundle(String baseName) {
+	private ResourceBundle getResourceBundle(String baseName,ClassLoader classLoader) {
 		ResourceBundle bundle = null;
 
 		if (map.containsKey(baseName + "-" + this.locale)) {
 			bundle = map.get(baseName + "-" + this.locale);
 
 		} else {
-			bundle = new ResourceBundleProxy(ResourceBundle.getBundle(baseName, this.locale));
+			bundle = new ResourceBundleProxy(ResourceBundle.getBundle(baseName, this.locale,classLoader));
 			map.put(baseName + "-" + this.locale, bundle);
 		}
 

@@ -20,9 +20,13 @@ public class MyManagedBean1 implements Serializable {
 	@EJB
 	private MyEJBInterface ejb;
 	
+	@Inject
+	private MyWebEJB1Interface ejbWeb;
+	
 	public void action() {
 		String mensagem = bundle.getString("app.web.mensagem");
 		System.out.println(mensagem + " em MyManagedBean 1.");
+		System.out.println(ejbWeb.webMethod() + " em MyManagedBean 1.");
 
 		ejb.method();
 	}
